@@ -1,0 +1,44 @@
+.form_heading {
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+    font-family: var(--Primary_Fonts);
+    letter-spacing: 1px;
+    text-transform: capitalize;
+}
+
+.form-select,
+.form-label,
+.form-control,
+.form-check-label {
+    font-size: 16px;
+    font-weight: 400;
+    font-family: var(--Primary_Fonts);
+    letter-spacing: 1px;
+}
+
+.form-select:focus,
+.form-control:focus {
+    box-shadow: none !important;
+}
+
+.form-control::placeholder {
+    font-size: 14px;
+    font-weight: 400;
+    font-family: var(--Primary_Fonts);
+    letter-spacing: 1px;
+}
+
+.custom_btn {
+    font-size: 15px;
+    font-weight: 100;
+    letter-spacing: 1px;
+    font-family: var(--Primary_Fonts);
+}
+
+.table_name_title {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--Primary_Color);
+    font-family: var(--Primary_Fonts);
+}

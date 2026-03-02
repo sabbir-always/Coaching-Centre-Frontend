@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Ruda:wght@400..900&display=swap');
+
+:root {
+    --Primary_Color: #116D6E;
+    --Secondary_Color: #FFFFFF;
+    --Theme_Color: #EAEFEF;
+    --Primary_Fonts: "Ruda", sans-serif;
+}
+
+*,
+::after,
+::before {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: #888888;
+}
+
+html,
+body {
+    max-width: 100vw;
+    overflow-x: hidden;
+    background-color: var(--Theme_Color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+    padding: 0;
+    margin: 0;
+}
+
+ul {
+    padding: 0px;
+    margin: 0px;
+    list-style-type: none;
+}
+
+a {
+    padding: 0px;
+    margin: 0px;
+    text-decoration: none !important;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+}
+
+/* For WebKit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.main_layout {
+    margin-left: 250px;
+    overflow-x: hidden;
+    background-color: var(--Theme_Color);
+}
+
+
+@media screen and (max-width:768px) {
+    .main_layout {
+        margin-left: 0px;
+    }
+}

@@ -1,0 +1,95 @@
+.offcanvas_sidebar {
+    max-width: 250px !important;
+}
+
+.offcanvas-header {
+    border-bottom: 1px dotted;
+}
+
+.offcanvas-title {
+    font-size: 16px;
+    font-weight: 400;
+    font-family: var(--Primary_Fonts);
+}
+
+.offcanvas-body {
+    padding: 5px 5px 30px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: auto;
+    max-height: calc(100vh - 60px);
+
+}
+
+.sidebar_items {
+    margin-bottom: 5px;
+}
+
+.sidebar_links {
+    color: black;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    font-family: var(--Primary_Fonts);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 10px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sidebar_links.active {
+    color: white;
+    background-color: black;
+}
+
+.sidebar_icons {
+    font-size: 16px;
+}
+
+.sidebar_logout {
+    width: 100%;
+    color: white;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    font-family: var(--Primary_Fonts);
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header_users_btn {
+    font-size: 25px;
+}
+
+@media (min-width: 768px) {
+    .offcanvas_sidebar {
+        visibility: visible !important;
+        transform: none !important;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        border-right: 1px solid #ddd;
+    }
+
+    .offcanvas-backdrop {
+        display: none !important;
+    }
+
+    .header {
+        margin-left: 250px;
+        overflow-x: hidden;
+    }
+
+    .offcanvas_close_btn {
+        display: none !important;
+    }
+}
