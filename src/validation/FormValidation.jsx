@@ -72,12 +72,16 @@ export const TeacherSchema = z.object({
         .min(1, "Department is required"),
 
     blood_group: z
-        .enum(["no_selected", "A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"],)
-        .optional(),
+        .enum(["A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"],)
+        .nullable()
+        .or(z.literal(""))
+        .transform((value) => (value === "" ? null : value)),
 
     religion: z
-        .enum(["no_selected", "Islam", "Hindu", "Christian", "Buddhism", "Other"])
-        .optional(),
+        .enum(["Islam", "Hindu", "Christian", "Buddhism", "Other"])
+        .nullable()
+        .or(z.literal(""))
+        .transform((value) => (value === "" ? null : value)),
 });
 
 export const AdmissionSchema = z.object({
@@ -114,7 +118,7 @@ export const AdmissionSchema = z.object({
     semester_id: z.string().trim(),
     section_id: z.string().trim(),
     department_id: z.string().trim(),
-    
+
     semester_fee: z.coerce
         .number({ invalid_type_error: "Semester fee must be a number" })
         .min(0, "Semester fee must be 0 or greater"),
@@ -124,62 +128,62 @@ export const AdmissionSchema = z.object({
         .trim()
         .min(3, "Institute name must be at least 3 characters")
         .max(50, "Institute name must not exceed 50 characters")
-        .optional()
+        .nullable()
         .or(z.literal(""))
-        .transform((value) => (value === "" ? undefined : value)),
+        .transform((value) => (value === "" ? null : value)),
 
     blood_group: z
-        .enum(["no_selected", "A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"])
-        .optional()
+        .enum(["A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-"])
+        .nullable()
         .or(z.literal(""))
-        .transform((value) => (value === "" ? undefined : value)),
+        .transform((value) => (value === "" ? null : value)),
 
     religion: z
-        .enum(["no_selected", "Islam", "Hindu", "Christian", "Buddhism", "Other"])
-        .optional()
+        .enum(["Islam", "Hindu", "Christian", "Buddhism", "Other"])
+        .nullable()
         .or(z.literal(""))
-        .transform((value) => (value === "" ? undefined : value)),
+        .transform((value) => (value === "" ? null : value)),
 
     guardian_name: z
         .string()
         .trim()
         .min(3, "First name must be at least 3 characters")
         .max(15, "First name must not exceed 15 characters")
-        .optional()
+        .nullable()
         .or(z.literal(""))
-        .transform((value) => (value === "" ? undefined : value)),
+        .transform((value) => (value === "" ? null : value)),
 
     guardian_phone: z
         .string()
         .trim()
         .min(11, "Phone must be at least 11 characters")
         .max(11, "Phone must not exceed 11 characters")
-        .optional()
+        .nullable()
         .or(z.literal(""))
-        .transform((value) => (value === "" ? undefined : value)),
+        .transform((value) => (value === "" ? null : value)),
 
     guardian_relation_ship: z
-        .enum(["no_selected", "Father", "Mother", "Brother", "Sister", "Uncle", "Others"])
-        .optional()
+        .enum(["Father", "Mother", "Brother", "Sister", "Uncle", "Others"])
+        .nullable()
         .or(z.literal(""))
-        .transform((value) => (value === "" ? undefined : value)),
+        .transform((value) => (value === "" ? null : value)),
 
     address: z
         .string()
         .trim()
         .min(10, "Address must be at least 10 characters")
         .max(100, "Address must not exceed 100 characters")
-        .optional()
+        .nullable()
         .or(z.literal(""))
-        .transform((value) => (value === "" ? undefined : value)),
+        .transform((value) => (value === "" ? null : value)),
 
     notes: z
         .string()
         .trim()
         .min(10, "Notes must be at least 10 characters")
         .max(100, "Notes must not exceed 100 characters")
-        .optional()
+        .nullable()
         .or(z.literal(""))
-        .transform((value) => (value === "" ? undefined : value)),
+        .transform((value) => (value === "" ? null : value)),
 });
 

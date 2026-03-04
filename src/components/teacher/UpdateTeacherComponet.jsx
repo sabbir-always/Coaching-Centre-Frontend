@@ -136,7 +136,7 @@ const UpdateTeacherComponet = () => {
                                 <div className="col-md-6 mb-3">
                                     <label className="form-label">Religion</label>
                                     <select {...register("religion")} className={`form-select rounded-0 ${errors.religion ? "is-invalid" : ""}`} disabled={isLoading}>
-                                        <option value="no_selected">Select Religion</option>
+                                        <option value="">Select Religion</option>
                                         <option value="Islam">Islam</option>
                                         <option value="Hindu">Hindu</option>
                                         <option value="Christian">Christian</option>
@@ -148,7 +148,7 @@ const UpdateTeacherComponet = () => {
                                 <div className="col-md-6 mb-3">
                                     <label className="form-label">Blood Group</label>
                                     <select {...register("blood_group")} className={`form-select rounded-0 ${errors.blood_group ? "is-invalid" : ""}`} disabled={isLoading}>
-                                        <option value="no_selected">Select Blood</option>
+                                        <option value="">Select Blood</option>
                                         <option value="A+">A+</option>
                                         <option value="A-">A-</option>
                                         <option value="B+">B+</option>

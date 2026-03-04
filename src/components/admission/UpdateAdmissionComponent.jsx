@@ -21,7 +21,7 @@ const UpdateAdmissionComponent = () => {
     useEffect(() => { fetchDepartmentData(1) }, [department.search]);
 
     const { register, handleSubmit, reset, setValue, formState: { errors }, } = useForm({
-        resolver: zodResolver(AdmissionSchema), defaultValues: { date_and_time: "", first_name: "", last_name: "", email: "", phone: "", semester_id: "", section_id: "", department_id: "", semester_fee: "", institute_name: "", blood_group: "no_selected", religion: "no_selected", guardian_name: "", guardian_phone: "", guardian_relation_ship: "no_selected", address: "", notes: "", }
+        resolver: zodResolver(AdmissionSchema), defaultValues: { date_and_time: "", first_name: "", last_name: "", email: "", phone: "", semester_id: "", section_id: "", department_id: "", semester_fee: "", institute_name: "", blood_group: "", religion: "", guardian_name: "", guardian_phone: "", guardian_relation_ship: "", address: "", notes: "", }
     });
 
     useEffect(() => {
@@ -213,7 +213,7 @@ const UpdateAdmissionComponent = () => {
                                 <div className="col-md-4 mb-3">
                                     <label className="form-label">Religion</label>
                                     <select {...register("religion")} className={`form-select rounded-0 ${errors.religion ? "is-invalid" : ""}`} disabled={isLoading}>
-                                        <option value="no_selected">Select Religion</option>
+                                        <option value="">Select Religion</option>
                                         <option value="Islam">Islam</option>
                                         <option value="Hindu">Hindu</option>
                                         <option value="Christian">Christian</option>
@@ -225,7 +225,7 @@ const UpdateAdmissionComponent = () => {
                                 <div className="col-md-4 mb-3">
                                     <label className="form-label">Blood Group</label>
                                     <select {...register("blood_group")} className={`form-select rounded-0 ${errors.blood_group ? "is-invalid" : ""}`} disabled={isLoading}>
-                                        <option value="no_selected">Select Blood</option>
+                                        <option value="">Select Blood</option>
                                         <option value="A+">A+</option>
                                         <option value="A-">A-</option>
                                         <option value="B+">B+</option>
@@ -253,7 +253,7 @@ const UpdateAdmissionComponent = () => {
                                 <div className="col-md-4 mb-3">
                                     <label className="form-label">Relationship</label>
                                     <select {...register("guardian_relation_ship")} className={`form-control rounded-0 ${errors.guardian_relation_ship ? "is-invalid" : ""}`}>
-                                        <option value="no_selected">Select Relation</option>
+                                        <option value="">Select Relation</option>
                                         <option value="Father">Father</option>
                                         <option value="Mother">Mother</option>
                                         <option value="Brother">Brother</option>

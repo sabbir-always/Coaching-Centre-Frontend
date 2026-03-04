@@ -34,10 +34,6 @@ const AdmissionContextProvider = ({ children }) => {
         }
     }
 
-    // ===== for react select dropdown ==========
-    const AdmissionOptionsSelect = (select) => { updateAdmissionState({ options_value: select }) };
-    const AdmissionOptionsSearch = (search) => { updateAdmissionState({ search: search }) };
-
     const deleteAdmission = async (id) => {
         try {
             const confirm_delete = window.confirm('Are You Sure ? You Want to Delete!');
@@ -64,7 +60,7 @@ const AdmissionContextProvider = ({ children }) => {
 
 
     return (
-        <AdmissionContext.Provider value={{ admission, updateAdmissionState, fetchAdmissionData, AdmissionOptionsSelect, AdmissionOptionsSearch, deleteAdmission }}>
+        <AdmissionContext.Provider value={{ admission, updateAdmissionState, fetchAdmissionData, deleteAdmission }}>
             {children}
         </ AdmissionContext.Provider>
     );

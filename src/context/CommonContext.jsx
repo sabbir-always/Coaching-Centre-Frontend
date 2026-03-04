@@ -33,10 +33,6 @@ const CommonContextProvider = ({ children }) => {
         }
     }
 
-    // === select dropdown ===
-    const SemesterOptionsSelect = (select) => { updateSemesterState({ options_value: select }) };
-    const SemesterOptionsSearch = (search) => { updateSemesterState({ search: search }) };
-
     const deleteSemester = async (id) => {
         try {
             const confirm_delete = window.confirm('Are You Sure ? You Want to Delete!');
@@ -89,11 +85,6 @@ const CommonContextProvider = ({ children }) => {
             updateSectionState({ isLoading: false });
         }
     }
-
-    // === select dropdown ===
-    const SectionOptionsSelect = (select) => { updateSectionState({ options_value: select }) };
-    const SectionOptionsSearch = (search) => { updateSectionState({ search: search }) };
-
 
     const deleteSection = async (id) => {
         try {
@@ -148,10 +139,6 @@ const CommonContextProvider = ({ children }) => {
         }
     }
 
-    // === select dropdown ===
-    const DepartmentOptionsSelect = (select) => { updateDepartmentState({ options_value: select }) };
-    const DepartmentOptionsSearch = (search) => { updateDepartmentState({ search: search }) };
-
     const deleteDepartment = async (id) => {
         try {
             const confirm_delete = window.confirm('Are You Sure ? You Want to Delete!');
@@ -204,10 +191,6 @@ const CommonContextProvider = ({ children }) => {
             updateTeacherState({ isLoading: false });
         }
     }
-
-    // === select dropdown ===
-    const TeacherOptionsSelect = (select) => { updateTeacherState({ options_value: select }) };
-    const TeacherOptionsSearch = (search) => { updateTeacherState({ search: search }) };
 
     const deleteTeacher = async (id) => {
         try {
@@ -286,7 +269,7 @@ const CommonContextProvider = ({ children }) => {
 
 
     return (
-        <CommonContext.Provider value={{ semester, updateSemesterState, fetchSemesterData, SemesterOptionsSelect, SemesterOptionsSearch, deleteSemester, section, updateSectionState, fetchSectionData, SectionOptionsSelect, SectionOptionsSearch, deleteSection, department, updateDepartmentState, fetchDepartmentData, deleteDepartment, teacher, updateTeacherState, fetchTeacherData, TeacherOptionsSelect, TeacherOptionsSearch, deleteTeacher, payment, updatePaymentState, fetchPaymentData, deletePayment }}>
+        <CommonContext.Provider value={{ semester, updateSemesterState, fetchSemesterData, deleteSemester, section, updateSectionState, fetchSectionData, deleteSection, department, updateDepartmentState, fetchDepartmentData, deleteDepartment, teacher, updateTeacherState, fetchTeacherData, deleteTeacher, payment, updatePaymentState, fetchPaymentData, deletePayment }}>
             {children}
         </ CommonContext.Provider>
     );
