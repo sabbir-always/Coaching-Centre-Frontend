@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from 'react';
-import { DEL_ADMISSION, GET_ADMISSION } from './Route';
-import axios from 'axios';
+import { DEL_ADMISSION, GET_ADMISSION, GET_ADMISSION_PAYMENT_DUE } from './Route';
 import { toast } from 'react-toastify';
+import axios from 'axios';
 const AdmissionContext = createContext();
 
 const AdmissionContextProvider = ({ children }) => {
@@ -20,7 +20,7 @@ const AdmissionContextProvider = ({ children }) => {
 
                 updateAdmissionState({
                     data: data, pagination: response.data.pagination || null,
-                    options: data.map(item => ({ value: item._id, label: item.semester_name }))
+                    options: data.map(item => ({ value: item._id, label: item.full_name }))
                 });
             }
 
@@ -58,9 +58,38 @@ const AdmissionContextProvider = ({ children }) => {
         }
     }
 
+    const [admissionPaymentDue, setAdmissionPaymentDue] = useState({ isLoading: false, data: [], pagination: null, search: '', error_message: null, options: [], options_value: null })
+    const updateAdmissionPaymentDueState = (newState) => { setAdmissionPaymentDue(prev => ({ ...prev, ...newState })) };
+
+    const fetchPaymentDueData = async (page) => {
+        try {
+            updateAdmissionPaymentDueState({ isLoading: true, error_message: null });
+            const response = await axios.get(GET_ADMISSION_PAYMENT_DUE, {
+                params: { search: admissionPaymentDue.search, page: page }
+            })
+
+            if (response && response.data) {
+                const data = response.data.payload || [];
+
+                updateAdmissionPaymentDueState({
+                    data: data, pagination: response.data.pagination || null,
+                    options: data.map(item => ({ value: item._id, label: item.student }))
+                });
+            }
+
+        } catch (error) {
+            if (axios.isAxiosError(error) && error.response) {
+                const err = error.response.data
+                if (!err.success) { console.error(err.message) }
+            }
+        } finally {
+            updateAdmissionPaymentDueState({ isLoading: false });
+        }
+    }
+
 
     return (
-        <AdmissionContext.Provider value={{ admission, updateAdmissionState, fetchAdmissionData, deleteAdmission }}>
+        <AdmissionContext.Provider value={{ admission, updateAdmissionState, fetchAdmissionData, deleteAdmission, admissionPaymentDue, updateAdmissionPaymentDueState, fetchPaymentDueData }}>
             {children}
         </ AdmissionContext.Provider>
     );

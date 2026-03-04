@@ -12,7 +12,7 @@ const UpdateDepartmentComponent = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
-    const { register, handleSubmit, reset, formState: { errors } } = useForm({ resolver: zodResolver(DepartmentSchema) });
+    const { register, handleSubmit, reset, formState: { errors } } = useForm({ resolver: zodResolver(DepartmentSchema), defaultValues: { department_name: "" } });
 
     useEffect(() => {
         const fetchDepartment = async () => {

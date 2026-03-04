@@ -60,7 +60,7 @@ const TablePaymentComponent = () => {
             name: "Action",
             cell: row => (
                 <div className="d-flex align-items-center gap-2">
-                    <Link to={`/student/semester/update/${row._id}`} className="btn btn-outline-success rounded-0 btn-sm"><BiEditAlt /></Link>
+                    <Link to={`/student/payment/update/${row._id}`} className="btn btn-outline-success rounded-0 btn-sm"><BiEditAlt /></Link>
                     <button type="button" onClick={() => deletePayment(row._id)} className="btn rounded-0 btn-sm btn-outline-danger"><BiTrash /></button>
                 </div>),
             width: "150px"

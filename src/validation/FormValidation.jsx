@@ -121,7 +121,7 @@ export const AdmissionSchema = z.object({
 
     semester_fee: z.coerce
         .number({ invalid_type_error: "Semester fee must be a number" })
-        .min(0, "Semester fee must be 0 or greater"),
+        .min(1, "Semester fee must be >1"),
 
     institute_name: z
         .string()
@@ -187,3 +187,18 @@ export const AdmissionSchema = z.object({
         .transform((value) => (value === "" ? null : value)),
 });
 
+export const PaymentSchema = z.object({
+    date_and_time: z
+        .string()
+        .nonempty("Payment date is required")
+        .refine((val) => !isNaN(Date.parse(val)), { message: "Invalid date format" }),
+
+    admission_id: z.string().trim(),
+
+    payment: z.coerce
+        .number({ invalid_type_error: "Payment must be a number" })
+        .min(1, "Payment must be >1"),
+
+    payment_method: z
+        .enum(["Cash", "Bkash", "Nagad", "Bank", "Other"])
+});

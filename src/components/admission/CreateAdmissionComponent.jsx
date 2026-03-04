@@ -20,7 +20,7 @@ const CreateAdmissionComponent = () => {
     useEffect(() => { fetchDepartmentData(1) }, [department.search]);
 
     const { register, handleSubmit, setValue, formState: { errors }, } = useForm({
-        resolver: zodResolver(AdmissionSchema), defaultValues: { date_and_time: "", first_name: "", last_name: "", email: "", phone: "", semester_id: "", section_id: "", department_id: "", semester_fee: "", institute_name: "", blood_group: "", religion: "", guardian_name: "", guardian_phone: "", guardian_relation_ship: "", address: "", notes: "", }
+        resolver: zodResolver(AdmissionSchema), defaultValues: { date_and_time: "", first_name: "", last_name: "", email: "", phone: "", semester_id: "", section_id: "", department_id: "", semester_fee: 0, institute_name: "", blood_group: "", religion: "", guardian_name: "", guardian_phone: "", guardian_relation_ship: "", address: "", notes: "", }
     });
 
     const onSubmit = async (data) => {

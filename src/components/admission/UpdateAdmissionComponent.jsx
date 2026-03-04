@@ -21,7 +21,7 @@ const UpdateAdmissionComponent = () => {
     useEffect(() => { fetchDepartmentData(1) }, [department.search]);
 
     const { register, handleSubmit, reset, setValue, formState: { errors }, } = useForm({
-        resolver: zodResolver(AdmissionSchema), defaultValues: { date_and_time: "", first_name: "", last_name: "", email: "", phone: "", semester_id: "", section_id: "", department_id: "", semester_fee: "", institute_name: "", blood_group: "", religion: "", guardian_name: "", guardian_phone: "", guardian_relation_ship: "", address: "", notes: "", }
+        resolver: zodResolver(AdmissionSchema), defaultValues: { date_and_time: "", first_name: "", last_name: "", email: "", phone: "", semester_id: "", section_id: "", department_id: "", semester_fee: 0, institute_name: "", blood_group: "", religion: "", guardian_name: "", guardian_phone: "", guardian_relation_ship: "", address: "", notes: "", }
     });
 
     useEffect(() => {
@@ -31,7 +31,7 @@ const UpdateAdmissionComponent = () => {
                 if (response.data && response.data.success) {
                     const data = response.data.payload
                     reset({
-                        date_and_time: data.date_and_time,
+                        date_and_time: data.date_and_time.split("T")[0],
                         first_name: data.first_name,
                         last_name: data.last_name,
                         email: data.email,

@@ -24,11 +24,13 @@ export const DEL_TEACHER = import.meta.env.VITE_API_SERVER_URL + "/api/v1/academ
 
 export const GET_PAYMENT = import.meta.env.VITE_API_SERVER_URL + "/api/v1/student/payment"
 export const POST_PAYMENT = import.meta.env.VITE_API_SERVER_URL + "/api/v1/student/payment"
+export const GET_SINGLE_PAYMENT = import.meta.env.VITE_API_SERVER_URL + "/api/v1/student/payment/"
 export const PUT_PAYMENT = import.meta.env.VITE_API_SERVER_URL + "/api/v1/student/payment/"
 export const DEL_PAYMENT = import.meta.env.VITE_API_SERVER_URL + "/api/v1/student/payment/"
 
 export const GET_ADMISSION = import.meta.env.VITE_API_SERVER_URL + "/api/v1/student/admission"
 export const POST_ADMISSION = import.meta.env.VITE_API_SERVER_URL + "/api/v1/student/admission"
 export const GET_SINGLE_ADMISSION = import.meta.env.VITE_API_SERVER_URL + "/api/v1/student/admission/"
+export const GET_ADMISSION_PAYMENT_DUE = import.meta.env.VITE_API_SERVER_URL + "/api/v1/student/admission/payment-due"
 export const PUT_ADMISSION = import.meta.env.VITE_API_SERVER_URL + "/api/v1/student/admission/"
 export const DEL_ADMISSION = import.meta.env.VITE_API_SERVER_URL + "/api/v1/student/admission/"

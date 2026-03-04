@@ -12,7 +12,7 @@ const UpdateSemesterComponent = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
-    const { register, handleSubmit, reset, formState: { errors } } = useForm({ resolver: zodResolver(SemesterSchema) });
+    const { register, handleSubmit, reset, formState: { errors } } = useForm({ resolver: zodResolver(SemesterSchema), defaultValues: { semester_name: "" } });
 
     useEffect(() => {
         const fetchSemester = async () => {

@@ -22,6 +22,8 @@ import CreateTeacherComponent from "./components/teacher/CreateTeacherComponent"
 import UpdateTeacherComponet from "./components/teacher/UpdateTeacherComponet";
 import CreateAdmissionComponent from "./components/admission/CreateAdmissionComponent";
 import UpdateAdmissionComponent from "./components/admission/UpdateAdmissionComponent";
+import CreatePaymentComponent from "./components/payment/CreatePaymentComponent";
+import UpdatePaymentComponent from "./components/payment/UpdatePaymentComponent";
 import './App.css'
 
 function App() {
@@ -36,6 +38,8 @@ function App() {
         <Route path="/academic/department/create" element={<CreateDepartmentComponent />} />
         <Route path="/academic/department/update/:id" element={<UpdateDepartmentComponent />} />
         <Route path="/student/payment/table" element={<PaymentPage />} />
+        <Route path="/student/payment/create" element={<CreatePaymentComponent />} />
+        <Route path="/student/payment/update/:id" element={<UpdatePaymentComponent />} />
         <Route path="/student/section/table" element={<SectionPage />} />
         <Route path="/student/section/create" element={<CreateSectionComponent />} />
         <Route path="/student/section/update/:id" element={<UpdateSectionComponent />} />
