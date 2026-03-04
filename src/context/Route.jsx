@@ -34,3 +34,4 @@ export const GET_SINGLE_ADMISSION = import.meta.env.VITE_API_SERVER_URL + "/api/
 export const GET_ADMISSION_PAYMENT_DUE = import.meta.env.VITE_API_SERVER_URL + "/api/v1/student/admission/payment-due"
 export const PUT_ADMISSION = import.meta.env.VITE_API_SERVER_URL + "/api/v1/student/admission/"
 export const DEL_ADMISSION = import.meta.env.VITE_API_SERVER_URL + "/api/v1/student/admission/"
+export const GET_DASHBOARD = import.meta.env.VITE_API_SERVER_URL + "/api/v1/academic/dashboard"

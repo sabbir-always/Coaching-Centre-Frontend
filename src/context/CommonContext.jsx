@@ -1,4 +1,4 @@
-import { DEL_DEPARTMENT, DEL_PAYMENT, DEL_SECTION, DEL_SEMESTER, DEL_TEACHER, GET_DEPARTMENT, GET_PAYMENT, GET_SECTION, GET_SEMESTER, GET_TEACHER } from './Route';
+import { DEL_DEPARTMENT, DEL_PAYMENT, DEL_SECTION, DEL_SEMESTER, DEL_TEACHER, GET_DASHBOARD, GET_DEPARTMENT, GET_PAYMENT, GET_SECTION, GET_SEMESTER, GET_TEACHER } from './Route';
 import { createContext, useContext, useState } from 'react';
 import { toast } from 'react-toastify';
 import axios from 'axios';
@@ -267,9 +267,31 @@ const CommonContextProvider = ({ children }) => {
         }
     }
 
+    const [dashboard, setDashboard] = useState({ isLoading: false, data: [], pagination: null, error_message: null })
+    const updateDashboardState = (newState) => { setDashboard(prev => ({ ...prev, ...newState })) };
+
+    const fetchDashboardData = async () => {
+        try {
+            updateDashboardState({ isLoading: true, error_message: null });
+            const response = await axios.get(GET_DASHBOARD)
+
+            if (response && response.data) {
+                const data = response.data.payload || [];
+                updateDashboardState({ data: data, pagination: response.data.pagination || null });
+            }
+
+        } catch (error) {
+            if (axios.isAxiosError(error) && error.response) {
+                const err = error.response.data
+                if (!err.success) { console.error(err.message) }
+            }
+        } finally {
+            updateDashboardState({ isLoading: false });
+        }
+    }
 
     return (
-        <CommonContext.Provider value={{ semester, updateSemesterState, fetchSemesterData, deleteSemester, section, updateSectionState, fetchSectionData, deleteSection, department, updateDepartmentState, fetchDepartmentData, deleteDepartment, teacher, updateTeacherState, fetchTeacherData, deleteTeacher, payment, updatePaymentState, fetchPaymentData, deletePayment }}>
+        <CommonContext.Provider value={{ semester, updateSemesterState, fetchSemesterData, deleteSemester, section, updateSectionState, fetchSectionData, deleteSection, department, updateDepartmentState, fetchDepartmentData, deleteDepartment, teacher, updateTeacherState, fetchTeacherData, deleteTeacher, payment, updatePaymentState, fetchPaymentData, deletePayment, dashboard, fetchDashboardData }}>
             {children}
         </ CommonContext.Provider>
     );

@@ -1,6 +1,11 @@
+import { useEffect } from 'react';
+import { useCommonContext } from '../context/CommonContext'
 import WebLayout from '../layout/WebLayout'
 
 const DashboardPage = () => {
+    const { dashboard, fetchDashboardData } = useCommonContext();
+    useEffect(() => { fetchDashboardData(1) }, ['']);
+    
     return (
         <WebLayout>
             <div className="container-fluid">
