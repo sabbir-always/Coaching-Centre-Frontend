@@ -87,7 +87,7 @@ const ViewAdmissionComponent = () => {
                     <div className="card-header">Guardian Information</div>
                     <div className="card-body">
                         <p><strong>Guardian Name : </strong> {student.data.guardian_name || '-'}</p>
-                        <p><strong>Guardian Phone : </strong> {student.data.guardian_phone || '-'}</p>
+                        <p><strong>Guardian Phone : </strong> <a href={`tel:${student.data.phone}`} className='text-dark'>{student.data.guardian_phone}</a></p>
                         <p><strong>Relation : </strong> {student.data.guardian_relation_ship || '-'}</p>
                     </div>
                 </div>
