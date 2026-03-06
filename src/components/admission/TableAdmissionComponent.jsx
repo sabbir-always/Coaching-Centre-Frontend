@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import DataTable from 'react-data-table-component';
 import { BiEditAlt, BiTrash } from 'react-icons/bi';
 import { IoReaderOutline } from "react-icons/io5";
@@ -9,7 +9,6 @@ const TableAdmissionComponent = () => {
     const { admission, fetchAdmissionData, deleteAdmission } = useAdmissionContext()
     useEffect(() => { fetchAdmissionData(1) }, [admission.search]);
     const onPageChange = (page) => { fetchAdmissionData(page) };
-
     const customStyles = {
         table: { style: { fontFamily: "'Ruda', sans-serif" } },
         headRow: { style: { backgroundColor: "#6b6b6b", color: "#fff", fontSize: "14px", fontWeight: "600" } }
@@ -18,7 +17,7 @@ const TableAdmissionComponent = () => {
     const columns = [
         {
             name: "SL",
-            selector: (row, index) => (index + 1),
+            selector: (row, index) => index + 1 + ((admission.pagination?.current_page || 1) - 1) * (admission.pagination?.per_page || 10),
             width: "60px"
         },
         {
@@ -27,11 +26,11 @@ const TableAdmissionComponent = () => {
         },
         {
             name: "Full Name",
-            selector: row => <Link to={`/student/admission/view/${row._id}`} className='text-dark'>{row.full_name}</Link>
+            selector: row => <Link to={`/student/admission/view/${row._id}`} className='text-dark text-decoration-none'>{row.full_name}</Link>
         },
         {
             name: "Phone",
-            selector: row => row.phone
+            selector: row => <a href={`tel:${row.phone}`} className='text-dark text-decoration-none'>{row.phone}</a>
         },
         {
             name: "Semester Name",
