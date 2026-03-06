@@ -56,7 +56,7 @@ const ViewAdmissionComponent = () => {
             <div className="container mt-4">
                 {/* ===== Basic Info ===== */}
                 <div className="card student_card rounded-0 mb-3">
-                    <div className="card-header">Basic Information</div>
+                    <div className="card-header">Basic Information<a href={`tel:${student.data.phone}`}>📞 Call</a></div>
                     <div className="card-body">
                         <p><strong>Name : </strong> {student.data.full_name}</p>
                         <p><strong>Phone : </strong> {student.data.phone}</p>
