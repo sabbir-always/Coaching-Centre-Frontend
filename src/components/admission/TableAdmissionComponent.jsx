@@ -27,7 +27,7 @@ const TableAdmissionComponent = () => {
         },
         {
             name: "Full Name",
-            selector: row => row.full_name
+            selector: row => <Link to={`/student/admission/view/${row._id}`} className='text-dark'>{row.full_name}</Link>
         },
         {
             name: "Phone",
