@@ -56,10 +56,10 @@ const ViewAdmissionComponent = () => {
             <div className="container mt-4">
                 {/* ===== Basic Info ===== */}
                 <div className="card student_card rounded-0 mb-3">
-                    <div className="card-header">Basic Information<a href={`tel:${student.data.phone}`}>📞 Call</a></div>
+                    <div className="card-header">Basic Information</div>
                     <div className="card-body">
                         <p><strong>Name : </strong> {student.data.full_name}</p>
-                        <p><strong>Phone : </strong> {student.data.phone}</p>
+                        <p><strong>Phone : </strong> <a href={`tel:${student.data.phone}`} className='text-dark'>{student.data.phone}</a></p>
                         <p><strong>Email : </strong> {student.data.email || '-'}</p>
                         <p><strong>Address : </strong> {student.data.address || '-'}</p>
                         <p><strong>Blood Group : </strong> {student.data.blood_group || '-'}</p>
