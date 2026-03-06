@@ -77,8 +77,8 @@ const ViewAdmissionComponent = () => {
                         <p><strong>Section : </strong> {student.data.section_name}</p>
                         <p><strong>Department : </strong> {student.data.department_name}</p>
                         <p><strong>Semester Fee : </strong> {student.data.semester_fee}</p>
-                        <p><strong>Paid : </strong> {student.data.semester_fee_payment}</p>
-                        <p><strong>Due : </strong> {student.data.semester_fee_due}</p>
+                        <p><strong>Total Paid : </strong> {student.data.semester_fee_payment}</p>
+                        <p><strong>Current Due : </strong> {student.data.semester_fee_due}</p>
                     </div>
                 </div>
 
