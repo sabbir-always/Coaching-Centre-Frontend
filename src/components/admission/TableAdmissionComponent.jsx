@@ -78,6 +78,7 @@ const TableAdmissionComponent = () => {
                 data={admission.data}
                 pagination
                 paginationServer
+                selectableRows
                 paginationComponentOptions={{ noRowsPerPage: true }}
                 progressPending={admission.isLoading}
                 progressComponent={<span role="status" className="spinner-border spinner-border-sm"></span>}
