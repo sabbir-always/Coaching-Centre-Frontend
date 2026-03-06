@@ -42,3 +42,59 @@
     color: var(--Primary_Color);
     font-family: var(--Primary_Fonts);
 }
+
+
+/* ======== Dashboard Card =========== */
+.dashboard_card {
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: default;
+}
+
+.dashboard_card:hover {
+    transform: translateY(-5px);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.dashboard_value {
+    font-family: var(--Primary_Fonts);
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0;
+    color: #4b2fa5;
+}
+
+.dashboard_label {
+    font-family: var(--Primary_Fonts);
+    font-size: 14px;
+    color: #6b5ca5;
+    margin-top: 5px;
+}
+
+/* Unique colors for each card */
+.dashboard_card.total_students {
+    background-color: #d2cbff;
+}
+
+.dashboard_card.total_semesters {
+    background-color: #b8f1ff;
+}
+
+.dashboard_card.total_students_fee {
+    background-color: #ffd2d2;
+}
+
+.dashboard_card.total_collection {
+    background-color: #d2ffd8;
+}
+
+.dashboard_card.total_due {
+    background-color: #fff1b8;
+}
+
+.dashboard_card.today_collection {
+    background-color: #f0d2ff;
+}

@@ -6,7 +6,8 @@ const CommonContext = createContext();
 
 const CommonContextProvider = ({ children }) => {
     const [semester, setSemester] = useState({ isLoading: false, data: [], pagination: null, search: '', error_message: null, options: [], options_value: null })
-    const updateSemesterState = (newState) => { setSemester(prev => ({ ...prev, ...newState })) };
+    const updateSemesterState = (data) => { setSemester(prev => ({ ...prev, ...data })) };
+
 
     const fetchSemesterData = async (page) => {
         try {
@@ -59,7 +60,7 @@ const CommonContextProvider = ({ children }) => {
     //-----------------------------------------------=== SECTION ===---------------------------------------------------------
 
     const [section, setSection] = useState({ isLoading: false, data: [], pagination: null, search: '', error_message: null, options: [], options_value: null })
-    const updateSectionState = (newState) => { setSection(prev => ({ ...prev, ...newState })) };
+    const updateSectionState = (data) => { setSection(prev => ({ ...prev, ...data })) };
 
     const fetchSectionData = async (page) => {
         try {
@@ -112,7 +113,7 @@ const CommonContextProvider = ({ children }) => {
     //------------------------------------------------------=== Department ===------------------------------------------------
 
     const [department, setDepartment] = useState({ isLoading: false, data: [], pagination: null, search: '', error_message: null, options: [], options_value: null })
-    const updateDepartmentState = (newState) => { setDepartment(prev => ({ ...prev, ...newState })) };
+    const updateDepartmentState = (data) => { setDepartment(prev => ({ ...prev, ...data })) };
 
     const fetchDepartmentData = async (page) => {
         try {
@@ -165,7 +166,7 @@ const CommonContextProvider = ({ children }) => {
     //------------------------------------------------------=== Teacher ===----------------------------------------------------
 
     const [teacher, setTeacher] = useState({ isLoading: false, data: [], pagination: null, search: '', error_message: null, options: [], options_value: null })
-    const updateTeacherState = (newState) => { setTeacher(prev => ({ ...prev, ...newState })) };
+    const updateTeacherState = (data) => { setTeacher(prev => ({ ...prev, ...data })) };
 
     const fetchTeacherData = async (page) => {
         try {
@@ -219,7 +220,7 @@ const CommonContextProvider = ({ children }) => {
     //------------------------------------------------------=== Payment ===----------------------------------------------------
 
     const [payment, setPayment] = useState({ isLoading: false, data: [], pagination: null, search: '', error_message: null })
-    const updatePaymentState = (newState) => { setPayment(prev => ({ ...prev, ...newState })) };
+    const updatePaymentState = (data) => { setPayment(prev => ({ ...prev, ...data })) };
 
     const fetchPaymentData = async (page) => {
         try {
@@ -268,7 +269,7 @@ const CommonContextProvider = ({ children }) => {
     }
 
     const [dashboard, setDashboard] = useState({ isLoading: false, data: [], pagination: null, error_message: null })
-    const updateDashboardState = (newState) => { setDashboard(prev => ({ ...prev, ...newState })) };
+    const updateDashboardState = (data) => { setDashboard(prev => ({ ...prev, ...data })) };
 
     const fetchDashboardData = async () => {
         try {

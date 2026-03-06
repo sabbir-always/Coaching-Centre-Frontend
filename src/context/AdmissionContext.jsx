@@ -6,7 +6,7 @@ const AdmissionContext = createContext();
 
 const AdmissionContextProvider = ({ children }) => {
     const [admission, setAdmission] = useState({ isLoading: false, data: [], pagination: null, search: '', error_message: null, options: [], options_value: null })
-    const updateAdmissionState = (newState) => { setAdmission(prev => ({ ...prev, ...newState })) };
+    const updateAdmissionState = (data) => { setAdmission(prev => ({ ...prev, ...data })) };
 
     const fetchAdmissionData = async (page) => {
         try {
@@ -59,7 +59,7 @@ const AdmissionContextProvider = ({ children }) => {
     }
 
     const [admissionPaymentDue, setAdmissionPaymentDue] = useState({ isLoading: false, data: [], pagination: null, search: '', error_message: null, options: [], options_value: null })
-    const updateAdmissionPaymentDueState = (newState) => { setAdmissionPaymentDue(prev => ({ ...prev, ...newState })) };
+    const updateAdmissionPaymentDueState = (data) => { setAdmissionPaymentDue(prev => ({ ...prev, ...data })) };
 
     const fetchPaymentDueData = async (page) => {
         try {
