@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import DataTable from 'react-data-table-component';
 import { BiEditAlt, BiTrash } from 'react-icons/bi';
+import { IoReaderOutline } from "react-icons/io5";
 import { useAdmissionContext } from '../../context/AdmissionContext';
 
 const TableAdmissionComponent = () => {
@@ -60,6 +61,7 @@ const TableAdmissionComponent = () => {
             name: "Action",
             cell: row => (
                 <div className="d-flex align-items-center gap-2">
+                    <Link to={`/student/admission/view/${row._id}`} className="btn btn-outline-primary rounded-0 btn-sm"><IoReaderOutline /></Link>
                     <Link to={`/student/admission/update/${row._id}`} className="btn btn-outline-success rounded-0 btn-sm"><BiEditAlt /></Link>
                     <button type="button" onClick={() => deleteAdmission(row._id)} className={`btn rounded-0 btn-sm ${Number(row.student_count) > 0 ? "btn-secondary disabled-btn" : "btn-outline-danger"}`} disabled={Number(row.student_count) > 0}><BiTrash /></button>
                 </div>),

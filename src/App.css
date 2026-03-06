@@ -98,3 +98,26 @@
 .dashboard_card.today_collection {
     background-color: #f0d2ff;
 }
+
+/* ========= Admission Details ========== */
+.student_card {
+    font-family: var(--Primary_Fonts);
+    font-size: 14px;
+    color: #2d2a3a;
+    letter-spacing: 0.5px;
+}
+
+table {
+    font-family: var(--Primary_Fonts);
+}
+
+table th {
+    font-family: var(--Primary_Fonts);
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+table td {
+    font-family: var(--Primary_Fonts);
+    font-size: 13px;
+}
