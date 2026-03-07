@@ -1,14 +1,17 @@
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import DataTable from 'react-data-table-component';
 import { BiEditAlt, BiTrash } from 'react-icons/bi';
 import { IoReaderOutline } from "react-icons/io5";
 import { useAdmissionContext } from '../../context/AdmissionContext';
+import { useCommonContext } from '../../context/CommonContext';
 
 const TableAdmissionComponent = () => {
+    const { semester, section, department } = useCommonContext()
     const { admission, fetchAdmissionData, deleteAdmission } = useAdmissionContext()
-    useEffect(() => { fetchAdmissionData(1) }, [admission.search]);
+    useEffect(() => { fetchAdmissionData(1) }, [admission.search, admission.from_date, admission.to_date, semester.options_value, section.options_value, department.options_value]);
     const onPageChange = (page) => { fetchAdmissionData(page) };
+
     const customStyles = {
         table: { style: { fontFamily: "'Ruda', sans-serif" } },
         headRow: { style: { backgroundColor: "#6b6b6b", color: "#fff", fontSize: "14px", fontWeight: "600" } }

@@ -17,7 +17,7 @@ const TablePaymentComponent = () => {
     const columns = [
         {
             name: "SL",
-            selector: (row, index) => (index + 1),
+            selector: (row, index) => index + 1 + ((payment.pagination?.current_page || 1) - 1) * (payment.pagination?.per_page || 10),
             width: "60px"
         },
         {

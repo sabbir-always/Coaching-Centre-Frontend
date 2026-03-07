@@ -1,18 +1,20 @@
 import { createContext, useContext, useState } from 'react';
 import { DEL_ADMISSION, GET_ADMISSION, GET_ADMISSION_PAYMENT_DUE } from './Route';
+import { useCommonContext } from './CommonContext';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 const AdmissionContext = createContext();
 
 const AdmissionContextProvider = ({ children }) => {
-    const [admission, setAdmission] = useState({ isLoading: false, data: [], pagination: null, search: '', error_message: null, options: [], options_value: null })
+    const { semester, section, department } = useCommonContext()
+    const [admission, setAdmission] = useState({ isLoading: false, data: [], pagination: null, search: '', from_date: '', to_date: '', semester: '', group: '', department: '', error_message: null, options: [], options_value: null })
     const updateAdmissionState = (data) => { setAdmission(prev => ({ ...prev, ...data })) };
 
     const fetchAdmissionData = async (page) => {
         try {
             updateAdmissionState({ isLoading: true, error_message: null });
             const response = await axios.get(GET_ADMISSION, {
-                params: { search: admission.search, page: page }
+                params: { search: admission.search, from_date: admission.from_date, to_date: admission.to_date, semester: semester.options_value?.value, group: section.options_value?.value, department: department.options_value?.value, page: page }
             })
 
             if (response && response.data) {

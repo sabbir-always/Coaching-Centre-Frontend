@@ -119,7 +119,7 @@ const CommonContextProvider = ({ children }) => {
         try {
             updateDepartmentState({ isLoading: true, error_message: null });
             const response = await axios.get(GET_DEPARTMENT, {
-                params: { search: section.search, page: page }
+                params: { search: department.search, page: page }
             })
 
             if (response && response.data) {
@@ -172,7 +172,7 @@ const CommonContextProvider = ({ children }) => {
         try {
             updateTeacherState({ isLoading: true, error_message: null });
             const response = await axios.get(GET_TEACHER, {
-                params: { search: section.search, page: page }
+                params: { search: teacher.search, page: page }
             })
 
             if (response && response.data) {
@@ -226,7 +226,7 @@ const CommonContextProvider = ({ children }) => {
         try {
             updatePaymentState({ isLoading: true, error_message: null });
             const response = await axios.get(GET_PAYMENT, {
-                params: { search: section.search, page: page }
+                params: { search: payment.search, page: page }
             })
 
             if (response && response.data) {

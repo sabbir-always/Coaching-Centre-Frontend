@@ -17,7 +17,7 @@ const TableSectionComponent = () => {
     const columns = [
         {
             name: "SL",
-            selector: (row, index) => (index + 1),
+            selector: (row, index) => index + 1 + ((section.pagination?.current_page || 1) - 1) * (section.pagination?.per_page || 10),
             width: "60px"
         },
         {

@@ -17,7 +17,7 @@ const TableSemesterComponent = () => {
   const columns = [
     {
       name: "SL",
-      selector: (row, index) => (index + 1),
+      selector: (row, index) => index + 1 + ((semester.pagination?.current_page || 1) - 1) * (semester.pagination?.per_page || 10),
       width: "60px"
     },
     {

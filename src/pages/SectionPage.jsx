@@ -3,7 +3,6 @@ import { MdFormatListBulletedAdd } from 'react-icons/md'
 import WebLayout from '../layout/WebLayout'
 import { Link } from 'react-router-dom'
 
-
 const SectionPage = () => {
     return (
         <WebLayout>
