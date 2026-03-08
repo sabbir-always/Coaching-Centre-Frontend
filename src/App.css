@@ -121,3 +121,13 @@ table td {
     font-family: var(--Primary_Fonts);
     font-size: 13px;
 }
+
+.search-box {
+    width: 100%;
+}
+
+@media (min-width: 576px) {
+    .search-box {
+        width: 25%;
+    }
+}

@@ -12,7 +12,7 @@
     font-family: var(--Primary_Fonts);
 }
 
-.offcanvas-body {
+.offcanvas_body {
     padding: 5px 5px 30px 0px;
     display: flex;
     flex-direction: column;
