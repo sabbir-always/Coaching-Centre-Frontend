@@ -1,9 +1,10 @@
 import TableAdmissionComponent from '../components/admission/TableAdmissionComponent'
 import { useAdmissionContext } from '../context/AdmissionContext'
+import { LuListFilter, LuTextSearch } from "react-icons/lu";
 import { useCommonContext } from '../context/CommonContext'
 import { MdFormatListBulletedAdd } from 'react-icons/md'
-import { LuListFilter } from "react-icons/lu";
 import WebLayout from '../layout/WebLayout'
+import { RxReset } from "react-icons/rx";
 import { Link } from 'react-router-dom'
 import Select from 'react-select'
 import { useEffect } from 'react'
@@ -39,15 +40,8 @@ const AdmissionPage = () => {
                         <h5 className="offcanvas-title" id="offcanvasRightLabel">Admission List Filter</h5>
                         <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" />
                     </div>
-                    <div className="offcanvas-body">
+                    <div className="offcanvas-body offcanvas_filter_body">
                         <div className="d-flex flex-column gap-2">
-                            {/* <div className='w-100'>
-                                <input type="date" onChange={(event) => updateAdmissionState({ from_date: event.target.value })} className="form-control rounded-0" />
-                            </div>
-                            <div className='w-100'>
-                                <input type="date" onChange={(event) => updateAdmissionState({ to_date: event.target.value })} className="form-control rounded-0" />
-                            </div> */}
-
                             <div className="w-100">
                                 <input
                                     type="text"
@@ -111,6 +105,10 @@ const AdmissionPage = () => {
                                     required
                                 />
                             </div>
+                        </div>
+                        <div className="d-flex align-items-center justify-content-center gap-2">
+                            <button className="btn btn-sm btn-danger sidebar_logout justify-content-center rounded"><RxReset className="sidebar_icons" />Reset</button>
+                            <button className="btn btn-sm btn-success sidebar_logout justify-content-center rounded" data-bs-dismiss="offcanvas" aria-label="Close"><LuTextSearch className="sidebar_icons" />Search</button>
                         </div>
                     </div>
                 </div>

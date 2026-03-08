@@ -16,7 +16,7 @@ const SidebarComponents = () => {
                 <h5 className="offcanvas-title" id="offcanvasScrollingLabel">Polytechnic Home</h5>
                 <button type="button" className="btn-close offcanvas_close_btn" data-bs-dismiss="offcanvas" aria-label="Close" />
             </div>
-            <div className="offcanvas-body offcanvas_body">
+            <div className="offcanvas-body offcanvas_sidebar_body">
                 <div className="sidebar_link_groups">
                     <NavLink to='/' className='sidebar_links'><MdOutlineSpaceDashboard className="sidebar_icons" />Dashboard</NavLink>
                     <NavLink to='/student/admission/table' className='sidebar_links'><PiStudentFill className="sidebar_icons" />Admission</NavLink>
