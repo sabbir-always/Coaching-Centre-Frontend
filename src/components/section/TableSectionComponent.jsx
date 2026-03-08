@@ -3,6 +3,7 @@ import { BiEditAlt, BiTrash } from 'react-icons/bi';
 import { useEffect } from 'react';
 import DataTable from 'react-data-table-component';
 import { useCommonContext } from '../../context/CommonContext';
+import { IoReaderOutline } from 'react-icons/io5';
 
 const TableSectionComponent = () => {
     const { section, fetchSectionData, deleteSection } = useCommonContext()
@@ -48,6 +49,7 @@ const TableSectionComponent = () => {
             name: "Action",
             cell: row => (
                 <div className="d-flex align-items-center gap-2">
+                    <Link to={`/student/section/view/${row._id}`} className="btn btn-outline-primary rounded-0 btn-sm"><IoReaderOutline /></Link>
                     <Link to={`/student/section/update/${row._id}`} className="btn btn-outline-success rounded-0 btn-sm"><BiEditAlt /></Link>
                     <button type="button" onClick={() => deleteSection(row._id)} className={`btn rounded-0 btn-sm ${Number(row.student_count) > 0 ? "btn-secondary disabled-btn" : "btn-outline-danger"}`} disabled={Number(row.student_count) > 0}><BiTrash /></button>
                 </div>),

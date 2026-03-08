@@ -17,6 +17,7 @@ import UpdateDepartmentComponent from "./components/department/UpdateDepartmentC
 import CreateSemesterComponent from "./components/semester/CreateSemesterComponent"
 import UpdateSemesterComponent from "./components/semester/UpdateSemesterComponent"
 import CreateSectionComponent from "./components/section/CreateSectionComponent"
+import ViewSectionComponent from "./components/section/ViewSectionComponent";
 import UpdateSectionComponent from "./components/section/UpdateSectionComponent"
 import CreateTeacherComponent from "./components/teacher/CreateTeacherComponent";
 import UpdateTeacherComponet from "./components/teacher/UpdateTeacherComponet";
@@ -45,6 +46,7 @@ function App() {
         <Route path="/student/section/table" element={<SectionPage />} />
         <Route path="/student/section/create" element={<CreateSectionComponent />} />
         <Route path="/student/section/update/:id" element={<UpdateSectionComponent />} />
+        <Route path="/student/section/view/:id" element={<ViewSectionComponent />} />
         <Route path="/student/semester/table" element={<SemesterPage />} />
         <Route path="/student/semester/create" element={<CreateSemesterComponent />} />
         <Route path="/student/semester/update/:id" element={<UpdateSemesterComponent />} />
