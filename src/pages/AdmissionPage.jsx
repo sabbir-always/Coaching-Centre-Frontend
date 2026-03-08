@@ -24,7 +24,7 @@ const AdmissionPage = () => {
                     <Link to='/student/admission/create' className='btn btn-outline-primary btn-sm rounded-0'><MdFormatListBulletedAdd /></Link>
                 </div>
 
-                <div className="d-flex align-items-center justify-content-end gap-2 px-3 bg-light shadow-sm py-2">
+                <div className="d-flex align-items-center justify-content-end gap-2 px-3 pe-md-5 bg-light shadow-sm py-2">
                     <div className='search-box'>
                         <input type="search" onChange={(event) => updateAdmissionState({ search: event.target.value })} className="form-control rounded-0" placeholder="Search Hear..." />
                     </div>
@@ -41,12 +41,34 @@ const AdmissionPage = () => {
                     </div>
                     <div className="offcanvas-body">
                         <div className="d-flex flex-column gap-2">
-                            <div className='w-100'>
+                            {/* <div className='w-100'>
                                 <input type="date" onChange={(event) => updateAdmissionState({ from_date: event.target.value })} className="form-control rounded-0" />
                             </div>
                             <div className='w-100'>
                                 <input type="date" onChange={(event) => updateAdmissionState({ to_date: event.target.value })} className="form-control rounded-0" />
+                            </div> */}
+
+                            <div className="w-100">
+                                <input
+                                    type="text"
+                                    placeholder="Select From Date"
+                                    onFocus={(e) => (e.target.type = "date")}
+                                    onBlur={(e) => !e.target.value && (e.target.type = "text")}
+                                    onChange={(event) => updateAdmissionState({ from_date: event.target.value })}
+                                    className="form-control rounded-0"
+                                />
                             </div>
+                            <div className="w-100">
+                                <input
+                                    type="text"
+                                    placeholder="Select To Date"
+                                    onFocus={(e) => (e.target.type = "date")}
+                                    onBlur={(e) => !e.target.value && (e.target.type = "text")}
+                                    onChange={(event) => updateAdmissionState({ to_date: event.target.value })}
+                                    className="form-control rounded-0"
+                                />
+                            </div>
+
                             <div className="w-100">
                                 <Select
                                     options={semester.options}
