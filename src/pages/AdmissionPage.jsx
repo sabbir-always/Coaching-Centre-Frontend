@@ -10,12 +10,19 @@ import Select from 'react-select'
 import { useEffect } from 'react'
 
 const AdmissionPage = () => {
-    const { updateAdmissionState } = useAdmissionContext()
+    const { admission, updateAdmissionState } = useAdmissionContext()
     const customStyles = { control: (styles) => ({ ...styles, backgroundColor: 'white', border: "1px solid #dee2e6", borderRadius: "0px", fontFamily: "Ruda, sans-serif" }) };
     const { semester, fetchSemesterData, updateSemesterState, section, updateSectionState, fetchSectionData, department, updateDepartmentState, fetchDepartmentData } = useCommonContext()
     useEffect(() => { fetchSemesterData(1) }, [semester.search]);
     useEffect(() => { fetchSectionData(1) }, [section.search]);
     useEffect(() => { fetchDepartmentData(1) }, [department.search]);
+
+    const handleReset = () => {
+        updateAdmissionState({ search: "", from_date: "", to_date: "" });
+        updateSemesterState({ options_value: null, search: "" });
+        updateDepartmentState({ options_value: null, search: "" });
+        updateSectionState({ options_value: null, search: "" });
+    };
 
     return (
         <WebLayout>
@@ -44,8 +51,9 @@ const AdmissionPage = () => {
                         <div className="d-flex flex-column gap-2">
                             <div className="w-100">
                                 <input
-                                    type="text"
+                                    type={admission.from_date ? "date" : "text"}
                                     placeholder="Select From Date"
+                                    value={admission.from_date || ""}
                                     onFocus={(e) => (e.target.type = "date")}
                                     onBlur={(e) => !e.target.value && (e.target.type = "text")}
                                     onChange={(event) => updateAdmissionState({ from_date: event.target.value })}
@@ -54,8 +62,9 @@ const AdmissionPage = () => {
                             </div>
                             <div className="w-100">
                                 <input
-                                    type="text"
+                                    type={admission.to_date ? "date" : "text"}
                                     placeholder="Select To Date"
+                                    value={admission.to_date || ""}
                                     onFocus={(e) => (e.target.type = "date")}
                                     onBlur={(e) => !e.target.value && (e.target.type = "text")}
                                     onChange={(event) => updateAdmissionState({ to_date: event.target.value })}
@@ -107,7 +116,7 @@ const AdmissionPage = () => {
                             </div>
                         </div>
                         <div className="d-flex align-items-center justify-content-center gap-2">
-                            <button className="btn btn-sm btn-danger sidebar_logout justify-content-center rounded"><RxReset className="sidebar_icons" />Reset</button>
+                            <button onClick={handleReset} className="btn btn-sm btn-danger sidebar_logout justify-content-center rounded"><RxReset className="sidebar_icons" />Reset</button>
                             <button className="btn btn-sm btn-success sidebar_logout justify-content-center rounded" data-bs-dismiss="offcanvas" aria-label="Close"><LuTextSearch className="sidebar_icons" />Search</button>
                         </div>
                     </div>
