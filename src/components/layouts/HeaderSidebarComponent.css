@@ -71,21 +71,8 @@
     justify-content: center;
     width: 30px;
     height: 30px;
-    border: 1px dotted var(--Primary_Color);
-}
-
-.header_users_name {
-    color: black;
-    font-size: 14px;
-    letter-spacing: 0.5px;
-    font-family: var(--Primary_Fonts);
-}
-
-.header_users_title {
-    color: black;
-    font-size: 10px;
-    letter-spacing: 0.5px;
-    font-family: var(--Primary_Fonts);
+    border: 1px solid var(--Primary_Color);
+    border-radius: 2px;
 }
 
 @media (min-width: 768px) {

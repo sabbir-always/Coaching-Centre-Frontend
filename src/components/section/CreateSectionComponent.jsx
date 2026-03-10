@@ -122,6 +122,7 @@ const CreateSectionComponent = () => {
                                             setValue("class_day", values, { shouldValidate: true });
                                         }}
                                         isMulti
+                                        isSearchable={false}
                                         className="basic-multi-select"
                                         classNamePrefix="select"
                                         required
