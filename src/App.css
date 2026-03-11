@@ -49,6 +49,7 @@
     border-radius: 5px;
     padding: 20px;
     text-align: center;
+    border-left: 3px solid var(--Primary_Color);
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     cursor: default;
@@ -183,4 +184,10 @@ table td {
     align-items: center;
     justify-content: center;
     gap: 10px;
+}
+
+@media (max-width: 576px) {
+    .dashboard_value {
+        font-size: 20px;
+    }
 }
