@@ -12,7 +12,7 @@ const HeaderComponent = () => {
                 </div>
                 <div className="col-6 col-md-2">
                     <div className="d-flex align-items-center justify-content-end">
-                        <div className="header_users_icon"><Link to=''><BiUser /></Link></div>
+                        <div className="header_users_icon_box"><Link to='' className="header_users_icon"><BiUser /></Link></div>
                     </div>
                 </div>
             </div>
