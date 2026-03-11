@@ -37,7 +37,7 @@ const TableSemesterComponent = () => {
       cell: row => (
         <div className="d-flex align-items-center gap-2">
           <Link to={`/student/semester/update/${row._id}`} className="btn btn-outline-success rounded-0 btn-sm"><BiEditAlt /></Link>
-          <button type="button" onClick={() => deleteSemester(row._id)} className={`btn rounded-0 btn-sm ${Number(row.student_count) > 0 ? "btn-secondary disabled-btn" : "btn-outline-danger"}`} disabled={Number(row.student_count) > 0}><BiTrash /></button>
+          <button type="button" onClick={() => deleteSemester(row._id)} className={`btn rounded-0 btn-sm ${Number(row.student_count) > 0 || Number(row.group_count) > 0 ? "btn-secondary disabled-btn" : "btn-outline-danger"}`} disabled={Number(row.student_count) > 0 || Number(row.group_count) > 0}><BiTrash /></button>
         </div>),
       width: "150px"
     }
