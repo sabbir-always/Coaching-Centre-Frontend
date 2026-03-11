@@ -43,7 +43,7 @@
 
 .sidebar_links.active {
     color: white;
-    background-color: black;
+    background-color: var(--Primary_Color);
 }
 
 .sidebar_icons {
